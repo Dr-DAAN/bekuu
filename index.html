@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        .container { display: flex; justify-content: center; margin-top: 20px; }
+        .mode { margin: 0 20px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; text-align: center; }
+        .mode:hover { background-color: #f0f0f0; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Interactive Website</h1>
+    <div class="container">
+        <div class="mode" onclick="alert('Valentine Mode Activated!')">
+            <h2>Valentine Mode</h2>
+            <p>Click to celebrate love!</p>
+        </div>
+        <div class="mode" onclick="alert('Birthday Mode Activated!')">
+            <h2>Birthday Mode</h2>
+            <p>Click to celebrate birthdays!</p>
+        </div>
+    </div>
+</body>
+</html>
