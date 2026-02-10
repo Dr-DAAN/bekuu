@@ -3,26 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Website</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        h1 { text-align: center; }
-        .container { display: flex; justify-content: center; margin-top: 20px; }
-        .mode { margin: 0 20px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; text-align: center; }
-        .mode:hover { background-color: #f0f0f0; cursor: pointer; }
-    </style>
+    <title>Beku's Special Day</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Interactive Website</h1>
-    <div class="container">
-        <div class="mode" onclick="alert('Valentine Mode Activated!')">
-            <h2>Valentine Mode</h2>
-            <p>Click to celebrate love!</p>
-        </div>
-        <div class="mode" onclick="alert('Birthday Mode Activated!')">
-            <h2>Birthday Mode</h2>
-            <p>Click to celebrate birthdays!</p>
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <div class="heart-shower"></div>
+        <div class="content">
+            <h1>Hi Beku! 🎉</h1>
+            <p>What would you like to celebrate today?</p>
+            <div class="button-container">
+                <button id="valentineBtn" class="mode-btn valentine-btn">💕 Valentine Mode</button>
+                <button id="birthdayBtn" class="mode-btn birthday-btn">🎂 Birthday Mode</button>
+            </div>
         </div>
     </div>
+
+    <!-- Valentine Mode - Age Verification -->
+    <div id="valentineAgePage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <h1>So I see you are interested? Niceee</h1>
+            <p>Before we go further, verify your age!</p>
+            <div class="button-container">
+                <button id="age18PlusBtn" class="age-btn btn-18plus">18+</button>
+                <button id="age18MinusBtn" class="age-btn btn-18minus">18-</button>
+            </div>
+            <div id="teaseMessage" class="message hidden">
+                <p>You lying piece of shit!!!!</p>
+                <p>Choose Correct!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Valentine Mode - Interest Page -->
+    <div id="valentineInterestPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <h1>So you are interested I see!</h1>
+            <p>I AM NOT!!!</p>
+            <div class="button-container">
+                <button id="slapMeBtn" class="action-btn">😤 Slap me!</button>
+                <button id="beGratefulBtn" class="action-btn">🌹 Be grateful BC!</button>
+            </div>
+            <div id="emojiContainer" class="emoji-container hidden"></div>
+        </div>
+    </div>
+
+    <!-- Valentine Mode - Slap Result -->
+    <div id="valentineSlapPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <div id="slapAnimation" class="emoji-animation">👨</div>
+            <button id="backToValentineBtn" class="action-btn">Back</button>
+        </div>
+    </div>
+
+    <!-- Valentine Mode - Grateful Result -->
+    <div id="valentineGratefulPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <h1>💕 Thank you for being grateful! 💕</h1>
+            <div id="roseShower" class="rose-shower"></div>
+            <a id="valentineLink" href="" target="_blank" class="gift-link">💐 Click for your surprise!</a>
+        </div>
+    </div>
+
+    <!-- Birthday Mode - Main Page -->
+    <div id="birthdayMainPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <div id="catWalk" class="cat-walk">🐱</div>
+            <h1>Baby ka Birthday Haiiiiiii!!! Meow! Meow! 🐾</h1>
+            <p>Kya Apko apka gift Pasand aaya?</p>
+            <div class="button-container">
+                <button id="birthdayYesBtn" class="birthday-btn">✨ Yuppp!</button>
+                <button id="birthdayNoBtn" class="birthday-btn">❓ Yaad Nahi!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Birthday Mode - No/Slap Result -->
+    <div id="birthdayNoPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <div id="birthdayEmojiSlap" class="emoji-animation">👩</div>
+            <p class="slap-message">White dress!!!</p>
+            <button id="backToBirthdayBtn" class="action-btn">Back to Birthday</button>
+        </div>
+    </div>
+
+    <!-- Birthday Mode - Yes Result -->
+    <div id="birthdayYesPage" class="page">
+        <div class="heart-shower"></div>
+        <button class="home-btn">🏠 Home</button>
+        <div class="content">
+            <h1>Salary nhi aayi isiliye kuch aur nhi le paya 💔</h1>
+            <p>To ittu sa apke liye 😘 (kiss)</p>
+            <div id="catFaceShower" class="cat-face-shower"></div>
+            <div id="catGift" class="cat-gift">
+                🐱📄
+            </div>
+            <a id="birthdayLink" href="" target="_blank" class="gift-link">🎁 Open your gift!</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
