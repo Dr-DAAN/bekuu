@@ -174,7 +174,7 @@ document.getElementById('beGratefulBtn').addEventListener('click', () => {
     showPage('valentineGratefulPage');
     createRoseShower();
     // SET YOUR VALENTINE LINK HERE - Replace with your actual link
-    document.getElementById('valentineLink').href = 'https://your-valentine-link-here.com';
+    document.getElementById('valentineLink').href = 'https://www.canva.com/design/DAHA6aPB51w/NXR_glGiecJ2dsHB0XhstA/edit?utm_content=DAHA6aPB51w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton';
 });
 
 document.getElementById('backToValentineBtn').addEventListener('click', () => {
@@ -197,7 +197,7 @@ document.getElementById('birthdayYesBtn').addEventListener('click', () => {
     showPage('birthdayYesPage');
     createCatFaceShower();
     // SET YOUR BIRTHDAY YES LINK HERE - Replace with your actual link
-    document.getElementById('birthdayLink').href = 'https://your-birthday-link-here.com';
+    document.getElementById('birthdayLink').href = 'https://www.canva.com/design/DAHA6dsPyKY/JDWwrGeG7SjvfLJ1x8-hYQ/edit?utm_content=DAHA6dsPyKY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton';
 });
 
 document.getElementById('birthdayNoBtn').addEventListener('click', () => {
