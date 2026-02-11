@@ -33,33 +33,33 @@ body {
 
 /* Home Page */
 #homePage {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('images/home-bg.jpg');
 }
 
 /* Valentine Pages */
 #valentineAgePage, #valentineInterestPage {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background-image: url('images/valentine-age-bg.jpg');
 }
 
 #valentineSlapPage {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    background-image: url('images/valentine-age-bg.jpg');
 }
 
 #valentineGratefulPage {
-    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    background-image: url('images/valentine-age-bg.jpg');
 }
 
 /* Birthday Pages */
 #birthdayMainPage {
-    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    background-image: url('images/birthday-main-bg.jpg');
 }
 
 #birthdayNoPage {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffd89b 100%);
+    background-image: url('images/birthday-main-bg.jpg');
 }
 
 #birthdayYesPage {
-    background: linear-gradient(135deg, #ff1493 0%, #ffd89b 100%);
+    background-image: url('images/birthday-main-bg.jpg');
 }
 
 .content {
