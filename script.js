@@ -24,46 +24,24 @@ function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
     });
-    document.getElementById(pageId).classList.add('active');
-    createHeartShower();
+
+    setTimeout(() => {
+        document.getElementById(pageId).classList.add('active');
+    }, 100);
 }
 
 // Heart Shower
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.textContent = '❤️';
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
-    
-    const showerContainers = document.querySelectorAll('.heart-shower');
-    if (showerContainers.length > 0) {
-        const activeContainer = document.querySelector('.page.active .heart-shower');
-        if (activeContainer) {
-            activeContainer.appendChild(heart);
-        }
-    }
-    
-    setTimeout(() => heart.remove(), 5000);
-}
+function createHeartBurst(count = 12) {
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = ['💖','💘','💕'][Math.floor(Math.random()*3)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (2 + Math.random()*2) + 's';
+        document.body.appendChild(heart);
 
-function createHeartShower() {
-    // Create initial hearts
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => createHeart(), i * 200);
+        setTimeout(() => heart.remove(), 4000);
     }
-    
-    // Continue creating hearts every 500ms
-    const interval = setInterval(() => {
-        if (!document.querySelector('.page.active')) {
-            clearInterval(interval);
-            return;
-        }
-        createHeart();
-    }, 500);
-    
-    // Store interval to clear if needed
-    window.currentHeartInterval = interval;
 }
 
 // Rose Shower (for Valentine Grateful page)
@@ -177,10 +155,9 @@ document.getElementById('beGratefulBtn').addEventListener('click', () => {
     document.getElementById('valentineLink').href = 'https://www.canva.com/design/DAHA6aPB51w/NXR_glGiecJ2dsHB0XhstA/edit?utm_content=DAHA6aPB51w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton';
 });
 
-document.getElementById('backToValentineBtn').addEventListener('click', () => {
+document.addEventListener('click', function() {
     playMeowSound();
-    document.getElementById('slapAnimation').textContent = '👨';
-    showPage('valentineInterestPage');
+    createHeartShower();
 });
 
 // Birthday Mode
