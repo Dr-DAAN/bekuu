@@ -5,375 +5,99 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
     height: 100vh;
-    background: #f0f0f0;
+    background: black;
 }
 
+/* PAGE SYSTEM */
 .page {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: scale(1.05);
 }
 
 .page.active {
     display: flex;
+    opacity: 1;
+    transform: scale(1);
 }
 
-/* Home Page */
-#homePage {
-    background-image: url('images/home-bg.jpg');
-}
-
-/* Valentine Pages */
-#valentineAgePage, #valentineInterestPage {
-    background-image: url('images/valentine-age-bg.jpg');
-}
-
-#valentineSlapPage {
-    background-image: url('images/valentine-age-bg.jpg');
-}
-
-#valentineGratefulPage {
-    background-image: url('images/valentine-age-bg.jpg');
-}
-
-/* Birthday Pages */
-#birthdayMainPage {
-    background-image: url('images/birthday-main-bg.jpg');
-}
-
-#birthdayNoPage {
-    background-image: url('images/birthday-main-bg.jpg');
-}
-
-#birthdayYesPage {
-    background-image: url('images/birthday-main-bg.jpg');
+/* Dark overlay for cinematic feel */
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(3px);
+    z-index: 0;
 }
 
 .content {
+    position: relative;
+    z-index: 10;
     text-align: center;
     color: white;
-    z-index: 10;
-    position: relative;
+    max-width: 900px;
     padding: 20px;
-    max-width: 800px;
 }
 
 .content h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: bounce 2s infinite;
+    animation: floatText 3s ease-in-out infinite;
 }
 
 .content p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+@keyframes floatText {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
-.button-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
+/* BUTTONS */
 button {
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    border: none;
+    padding: 14px 28px;
     border-radius: 50px;
+    border: none;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(10px);
 }
 
 button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.08);
 }
 
-button:active {
-    transform: scale(0.95);
-}
-
-.mode-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    min-width: 200px;
-}
-
-.valentine-btn {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
+.mode-btn,
+.action-btn,
+.age-btn,
 .birthday-btn {
-    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    background: rgba(255,255,255,0.15);
     color: white;
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
-.age-btn {
-    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
-    color: white;
-    min-width: 150px;
+.mode-btn:hover,
+.action-btn:hover,
+.age-btn:hover,
+.birthday-btn:hover {
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
 }
 
-.action-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    min-width: 150px;
-}
-
-.home-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.3);
-    color: white;
-    font-size: 1rem;
-    z-index: 100;
-}
-
-.home-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-/* Heart Shower */
-.heart-shower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.heart {
-    position: fixed;
-    color: #ff1493;
-    font-size: 2rem;
-    opacity: 0.7;
-    animation: fall 3s linear forwards;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Rose Shower */
-.rose-shower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.rose {
-    position: fixed;
-    font-size: 2rem;
-    opacity: 0.7;
-    animation: fall 3s linear forwards;
-    pointer-events: none;
-}
-
-/* Cat Walk Animation */
-.cat-walk {
-    font-size: 3rem;
-    position: relative;
-    margin-bottom: 20px;
-    animation: catWalkAnim 4s ease-in-out forwards;
-}
-
-@keyframes catWalkAnim {
-    0% {
-        left: -100px;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-    }
-}
-
-/* Emoji Animation */
-.emoji-container {
-    font-size: 5rem;
-    margin: 20px 0;
-}
-
-.emoji-animation {
-    font-size: 8rem;
-    margin: 30px 0;
-    animation: slapAnimation 1s ease-in-out;
-}
-
-@keyframes slapAnimation {
-    0% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scaleX(-1);
-    }
-    50% {
-        transform: scale(0.8) rotate(-10deg);
-    }
-    75% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Cat Face Shower */
-.cat-face-shower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.cat-face {
-    position: fixed;
-    font-size: 3rem;
-    opacity: 0.8;
-    animation: fall 3s linear forwards;
-    pointer-events: none;
-}
-
-/* Cat Gift */
-.cat-gift {
-    font-size: 4rem;
-    margin: 30px 0;
-    animation: catGiftAnim 2s ease-in-out infinite;
-}
-
-@keyframes catGiftAnim {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(5deg);
-    }
-}
-
-.gift-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.3);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-}
-
-.gift-link:hover {
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
-}
-
-.hidden {
-    display: none !important;
-}
-
-.message {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
-
-.message p {
-    margin: 10px 0;
-}
-
-.slap-message {
-    font-size: 2rem;
-    margin: 20px 0;
-    animation: bounce 0.6s infinite;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content h1 {
-        font-size: 1.8rem;
-    }
-
-    .content p {
-        font-size: 1.2rem;
-    }
-
-    button {
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-
-    .button-container {
-        gap: 10px;
-    }
-
-    .mode-btn, .age-btn, .action-btn {
-        min-width: 120px;
-    }
-}
-
-/* Grow Effect for 18- Button */
-.btn-18minus.grow {
-    transform: scale(2);
-    position: relative;
-    z-index: 20;
-}
-
-.btn-18minus.bouncing {
-    animation: bounceRandom 1s ease-in-out;
-}
-
-@keyframes bounceRandom {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
+.b
